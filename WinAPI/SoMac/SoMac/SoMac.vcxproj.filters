@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\DefaultHeader">
+      <UniqueIdentifier>{f47d3006-dab9-45cd-aa8a-fb2aed1e6741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager">
+      <UniqueIdentifier>{3ef8df75-8d2a-4dda-abbf-ba5be75a72cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01. Object">
+      <UniqueIdentifier>{3a31d2de-e151-49ae-b75d-b6a9f456fc3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\00. Core">
+      <UniqueIdentifier>{a1f82bdb-521b-447f-8862-19f767880d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\01. TimeMgr">
+      <UniqueIdentifier>{07a2714c-71aa-4089-a811-1464294a3d12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\02. KeyMgr">
+      <UniqueIdentifier>{27a10d3a-5f81-4b37-96f5-779a18b5a540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\03. SceneMgr">
+      <UniqueIdentifier>{3d52a946-b1ce-4e80-a5ef-ae1725021aa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\04. CollisionMgr">
+      <UniqueIdentifier>{cf4c0bcd-ea3b-45fe-a25c-97bf81507718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\05. Camera">
+      <UniqueIdentifier>{866c890f-ec26-4a54-b214-ee09fde801c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\06. ResMgr">
+      <UniqueIdentifier>{70d1ba0b-9b99-4a24-9bb1-d5ba7f734e2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\07.PathMgr">
+      <UniqueIdentifier>{d397e603-31ac-443c-8ba9-06f739f5a060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\03. SceneMgr\Scene">
+      <UniqueIdentifier>{ffbb82f4-3fba-4fcb-b589-6f028c7d2ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\03. SceneMgr\Scene\00. Logo">
+      <UniqueIdentifier>{9ab49d59-5d88-4ad3-a3b0-40e352263820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\03. SceneMgr\Scene\01. Ready">
+      <UniqueIdentifier>{84849fb5-fc8f-4b44-9880-0c2b8577773d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00. Manager\03. SceneMgr\Scene\02. Game">
+      <UniqueIdentifier>{9e96b340-83de-4bd7-9c6e-fb1d9ab73986}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files\DefaultHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SoMac.h">
+      <Filter>Header Files\DefaultHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\DefaultHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\DefaultHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Source Files\00. Manager\00. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>Source Files\00. Manager\03. SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\00. Manager\03. SceneMgr\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Source Files\01. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>Source Files\00. Manager\01. TimeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>Source Files\00. Manager\02. KeyMgr</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source Files\00. Manager\00. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>Source Files\00. Manager\03. SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\00. Manager\03. SceneMgr\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files\01. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>Source Files\00. Manager\01. TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>Source Files\00. Manager\02. KeyMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SoMac.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SoMac.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
