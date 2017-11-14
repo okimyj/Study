@@ -21,8 +21,15 @@
 #include <cmath>
 
 // TODO: reference additional headers your program requires here
-
+#include <assert.h>
 #include <vector>
 #include <list>
 #include <map>
+#include <WinGdi.h>
+
+
 using namespace std;
+
+
+// TransparentBlt.
+#pragma comment(lib, "Msimg32.lib")

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "SoMac.h"
 #include "global.h"
+#include "Core.h"
 
 
 #define MAX_LOADSTRING 100
@@ -41,19 +42,35 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+	// Core 초기화 
+	CCore::GetInst()->init();
+
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_SOMAC));
 
     MSG msg;
-
-    // Main message loop:
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
+	// GetMessage()는 메세지가 있어야만 반환을 하고 메세지가 없으면 내부에서 무한 루프. 
+	// GetMessage()의 반환 값은 메세지 값이 WM_QUIT이면 false, 아니면 true. 
+	// PeekMessage()는 GetMessage()와 달리 메세지가 있던 없던 반환을 한다. 
+	// PeekMessage()의 반환 값은 // Message 큐에 Message가 있으면 true,  없으면 false.
+	// 따라서, WM_QUIT 메세지가 발생한 경우를 직접 처리 해주어야 한다.  
+	while (true)
+	{
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			if (WM_QUIT == msg.message)
+				break;
+			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
+		}
+		else
+		{
+			// GameCode Run.
+			CCore::GetInst()->run();
+		}
+	}
 
     return (int) msg.wParam;
 }
@@ -107,7 +124,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    {
       return FALSE;
    }
-
+   RECT rt{ 0, 0, WINSIZE_X, WINSIZE_Y };
+   AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, false);
+   SetWindowPos(g_hWnd, NULL, 100, 100, rt.right - rt.left, rt.bottom - rt.top, NULL);
    ShowWindow(g_hWnd, nCmdShow);
    UpdateWindow(g_hWnd);
 

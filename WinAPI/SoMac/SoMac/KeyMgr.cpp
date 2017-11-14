@@ -14,7 +14,7 @@ CKeyMgr::~CKeyMgr()
 void CKeyMgr::init()
 {
 	for (int i = 0; i < (int)KEY_TYPE::END; ++i)
-		m_arrKey[i].eState = KEY_STATE::STATE_NONE;
+		m_arrKey[i].eState = KEY_STATE::NONE;
 
 	m_arrKey[(int)KEY_TYPE::KEY_1].iVK = '1';
 	m_arrKey[(int)KEY_TYPE::KEY_2].iVK = '2';
@@ -107,15 +107,33 @@ void CKeyMgr::update()
 		{
 			// 키가 눌린 상태. 
 			// 이전에 눌리지 않은 상태이거나, 키를 뗀 상태라면 이번에 처음 눌린거니 DOWN.
-			if (m_arrKey[i].eState == STATE_NONE || m_arrKey[i].eState == STATE_UP)
-			{
-				m_arrKey[i].eState = STATE_DOWN;
-			}
+			if (KEY_STATE::NONE == m_arrKey[i].eState || KEY_STATE::UP == m_arrKey[i].eState)
+				m_arrKey[i].eState = KEY_STATE::DOWN;
+			// 이전에도 상태가 DOWN이였다면 계속 누르고 있는거니까 HOLD.
+			else if(KEY_STATE::DOWN == m_arrKey[i].eState)
+				m_arrKey[i].eState = KEY_STATE::HOLD;
+		}
+		else
+		{
+			// 키가 눌리지 않은 상태. 
+			if (KEY_STATE::NONE == m_arrKey[i].eState)
+				continue;
+
+			if (KEY_STATE::UP == m_arrKey[i].eState)
+				m_arrKey[i].eState = KEY_STATE::NONE;
+			else  // 이전 상태가 down이나 hold 였을 경우.
+				m_arrKey[i].eState = KEY_STATE::UP;
 		}
 	}
+
+	// 현재 마우스 위치 저장.
+	POINT pMouse{};
+	GetCursorPos(&pMouse);
+	ScreenToClient(g_hWnd, &pMouse);
+	m_ptMouse = pMouse;
 }
 
 bool CKeyMgr::GetKeyState(KEY_TYPE _eType, KEY_STATE _eState)
 {
-	return false;
+	return _eState == m_arrKey[(int)_eType].eState;
 }

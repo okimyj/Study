@@ -85,12 +85,12 @@ enum class KEY_TYPE
 	END
 };
 
-enum KEY_STATE
+enum class KEY_STATE
 {
-	STATE_DOWN,
-	STATE_HOLD,
-	STATE_UP,
-	STATE_NONE,
+	DOWN,
+	HOLD,
+	UP,
+	NONE,
 };
 typedef struct _tagKeyType
 {
@@ -100,12 +100,14 @@ typedef struct _tagKeyType
 
 class CKeyMgr
 {
-	SINGLE(CKeyMgr)
+	SINGLE(CKeyMgr);
 private:
-	tKeyType m_arrKey[(int)KEY_TYPE::END];
+	tKeyType	m_arrKey[(int)KEY_TYPE::END];
+	tPoint		m_ptMouse;
 public :
 	void init();
 	void update();
 public:
 	bool GetKeyState(KEY_TYPE _eType, KEY_STATE _eState);
+	tPoint GetMousePos() { return  m_ptMouse; }
 };

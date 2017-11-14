@@ -11,6 +11,7 @@ private:
 public:
 	CScene* GetCurrentScene() { return m_pCurScene; }
 	bool AddObject(OBJ_TYPE _eType, CObj* _pObj);
+	bool ChangeScene(SCENE_TYPE _eType);
 public:
 	void init();
 	void update();

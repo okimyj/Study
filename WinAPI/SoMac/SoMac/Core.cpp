@@ -1,7 +1,12 @@
 #include "stdafx.h"
 #include "Core.h"
-
-
+#include "TimeMgr.h"
+#include "KeyMgr.h"
+#include "SceneMgr.h"
+#include "CollisionMgr.h"
+#include "Camera.h"
+#include "PathMgr.h"
+#include "UIMgr.h"
 CCore::CCore()
 {
 }
@@ -27,8 +32,10 @@ void CCore::init()
 	// 원래 가지고 있던 것은 사용 할 일이 없으니 delete.
 	DeleteObject(m_hMemBit);
 	// Manager 들 init.
-
-	
+	CPathMgr::init();
+	CTimeMgr::GetInst()->init();
+	CKeyMgr::GetInst()->init();
+	CSceneMgr::GetInst()->init();
 }
 
 int CCore::run()
@@ -41,12 +48,26 @@ int CCore::run()
 void CCore::update()
 {
 	// 각 Manager들의 update호출. 
+	CTimeMgr::GetInst()->update();
+
+	CKeyMgr::GetInst()->update();
+
+	CSceneMgr::GetInst()->update();
+
+	CCollisionMgr::GetInst()->update();
+
+	CCamera::GetInst()->update();
+
+	CUIMgr::GetInst()->update();
+	
 }
 
 void CCore::render()
 {
 	// 실제 윈도우 사이즈보다 top, left, right, bottom의 크기가 1픽셀씩 큰 rect를 memory dc에 그린다.
 	Rectangle(m_hMemDC, -1, -1, WINSIZE_X + 1, WINSIZE_Y + 1);
+
+	CSceneMgr::GetInst()->render(m_hMemDC);
 
 	// m_hMemDC의 내용을 한꺼번에 main window dc에 그린다.
 	BitBlt(m_hdc, 0, 0, WINSIZE_X, WINSIZE_Y, m_hMemDC, 0, 0, SRCCOPY);
