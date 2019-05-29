@@ -1,1 +1,1 @@
-Git Test File - modify by gitTest folder.
+Git Test File - modify by git folder.
