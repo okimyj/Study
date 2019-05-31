@@ -1,4 +1,4 @@
 commitTest
-commitTest - Study 2
-commitTest2 - Study 2
-commitTest2 - Study 2
+commitTest - Study 1
+commitTest2 - Study 1
+commitTest2 - Study 1
