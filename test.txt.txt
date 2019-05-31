@@ -1,2 +1,2 @@
 commitTest
-commitTest - Study2
+commitTest - Study 
